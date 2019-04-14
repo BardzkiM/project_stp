@@ -1,29 +1,21 @@
 import React, { Component } from 'react';
-import { connect } from "react-redux";
-import { listActions } from '../../../actions/listActions';
-import { getArticles, getFetching, getError } from '../../../selectors/listSelectors';
 import ListItem from "./ListItem";
 import './List.css';
 
 class List extends Component {
-    componentDidMount() {
-        this.props.getItems();
-    }
 
     render() {
-        const { articles, fetching, error } = this.props;
+        const { listItems } = this.props;
 
-        //TODO: add some error popup/redirect
-        if (error) {
-            return <div>Something went wrong, please try again later...</div>;
+        if (listItems.isEmpty()) {
+            return (
+                <div className="list-no-items">
+                    Nothing to show
+                </div>
+            )
         }
 
-        //TODO: add loader instead
-        if (fetching || !articles) {
-            return <div>Loading data...</div>
-        }
-
-        const items = articles.map(article => <ListItem key={article.get('id')} article={article}/>);
+        const items = listItems.map(item => <ListItem key={item.get('id')} item={item}/>);
 
         return(
             <ul className="list">
@@ -33,14 +25,4 @@ class List extends Component {
     }
 }
 
-const mapStateToProps = state => ({
-    fetching: getFetching(state),
-    articles: getArticles(state),
-    error: getError(state)
-});
-
-const mapDispatchToProps = dispatch => ({
-    getItems: () => dispatch({ type: listActions.API_CALL_REQUEST })
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(List);
+export default List;

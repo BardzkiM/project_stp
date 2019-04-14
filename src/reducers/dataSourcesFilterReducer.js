@@ -1,12 +1,15 @@
-import {dataSourcesFilterActions} from '../actions/dataSourcesFilterActions';
-import {dataSourcesTypes} from '../constants/dataSourcesTypes';
+import { dataSourcesFilterActions } from '../actions/dataSourcesFilterActions';
+import { fromJS } from 'immutable';
 
-const initialState = dataSourcesTypes.NONE;
+const initialState = fromJS({
+    fashion: true,
+    sport: true
+});
 
 export function dataSourcesFilterReducer(state = initialState, action) {
     switch (action.type) {
-        case dataSourcesFilterActions.CHANGE_FILTER:
-            return action.payload;
+        case dataSourcesFilterActions.SELECT_FILTER:
+            return state.set(action.payload.data, action.payload.value);
         default:
             return state;
     }

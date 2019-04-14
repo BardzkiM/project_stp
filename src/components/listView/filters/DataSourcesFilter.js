@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { getDataSourcesFilterReducer } from '../../../selectors/dataSourcesFilterReducer';
-import { dataSourcesTypes } from '../../../constants/dataSourcesTypes';
+import { getDataSourcesFilter } from '../../../selectors/dataSourcesFilter';
 import { dataSourcesFilterActions } from '../../../actions/dataSourcesFilterActions';
 import './DataSourcesFilter.css';
 
 class DataSourcesFilter extends Component {
     handleRadioChange = data => {
-        this.props.setDataSourcesFilter(data);
+        const { dataSourcesFilter, setDataSourcesFilter } = this.props;
+
+        setDataSourcesFilter({ data, value: !dataSourcesFilter.get(data) });
     };
 
     render() {
@@ -22,8 +23,8 @@ class DataSourcesFilter extends Component {
                         className="data-source-filter__checkbox"
                         type="checkbox"
                         value="Fashion"
-                        checked={dataSourcesFilter === dataSourcesTypes.FASHION}
-                        onChange={() => this.handleRadioChange(dataSourcesTypes.FASHION)}
+                        checked={dataSourcesFilter.get('fashion')}
+                        onChange={() => this.handleRadioChange('fashion')}
                     />Fashion
                 </label>
                 <label className="data-source-filter__label">
@@ -31,8 +32,8 @@ class DataSourcesFilter extends Component {
                         className="data-source-filter__checkbox"
                         type="checkbox"
                         value="Sports"
-                        checked={dataSourcesFilter === dataSourcesTypes.SPORTS}
-                        onChange={() => this.handleRadioChange(dataSourcesTypes.SPORTS)}
+                        checked={dataSourcesFilter.get('sport')}
+                        onChange={() => this.handleRadioChange('sport')}
                     />Sports
                 </label>
             </div>
@@ -41,11 +42,11 @@ class DataSourcesFilter extends Component {
 }
 
 const mapStateToProps = state => ({
-    dataSourcesFilter: getDataSourcesFilterReducer(state)
+    dataSourcesFilter: getDataSourcesFilter(state)
 });
 
 const mapDispatchToProps = dispatch => ({
-    setDataSourcesFilter: payload => dispatch({ type: dataSourcesFilterActions.CHANGE_FILTER, payload: payload })
+    setDataSourcesFilter: payload => dispatch({ type: dataSourcesFilterActions.SELECT_FILTER, payload: payload })
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(DataSourcesFilter);

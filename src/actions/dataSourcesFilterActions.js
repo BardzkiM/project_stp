@@ -1,3 +1,3 @@
 export const dataSourcesFilterActions = {
-    CHANGE_FILTER: 'CHANGE_FILTER'
+    SELECT_FILTER: 'CHANGE_FILTER'
 };

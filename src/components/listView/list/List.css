@@ -1,7 +1,17 @@
+.list, .list-no-items {
+    order: 3;
+    flex: 1 0 auto;
+}
+
 .list {
     list-style-type: none;
     padding: 5px;
-    order: 3;
-    flex: 1 0 auto;
     max-width: calc(100% - 160px);
+}
+
+.list-no-items {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(100% - 160px);
 }

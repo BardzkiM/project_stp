@@ -3,19 +3,20 @@ import axios from "axios";
 import { fromJS } from 'immutable';
 import { listActions } from '../actions/listActions';
 
-function getItems() {
+function getItems(dataSourcesFilter) {
     return axios({
         method: "get",
-        url: "http://localhost:6010/articles/sports"
+        url: `http://localhost:6010/articles/${dataSourcesFilter}`
     });
 }
 
 export function* getItemsSaga() {
     try {
-        const response = yield call(getItems);
-        const articles = fromJS(response.data.articles);
+        const responseFashion = yield call(getItems, ['fashion']);
+        const responseSports = yield call(getItems, ['sports']);
+        const articles = [...responseFashion.data.articles, ...responseSports.data.articles];
 
-        yield put({ type: listActions.API_CALL_SUCCESS, articles: articles });
+        yield put({ type: listActions.API_CALL_SUCCESS, articles: fromJS(articles) });
 
     } catch (error) {
         yield put({ type: listActions.API_CALL_FAILURE, error });
