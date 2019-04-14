@@ -18,6 +18,6 @@ export function* getItemsSaga() {
         yield put({ type: listActions.API_CALL_SUCCESS, articles: articles });
 
     } catch (error) {
-        yield put({type: listActions.API_CALL_FAILURE, error});
+        yield put({ type: listActions.API_CALL_FAILURE, error });
     }
 }

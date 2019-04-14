@@ -32,18 +32,14 @@ class List extends Component {
     }
 }
 
-const mapStateToProps = state => {
-    return {
-        fetching: getFetching(state),
-        articles: getArticles(state),
-        error: getError(state)
-    };
-};
+const mapStateToProps = state => ({
+    fetching: getFetching(state),
+    articles: getArticles(state),
+    error: getError(state)
+});
 
-const mapDispatchToProps = dispatch => {
-    return {
-        getItems: () => dispatch({ type: listActions.API_CALL_REQUEST })
-    };
-};
+const mapDispatchToProps = dispatch => ({
+    getItems: () => dispatch({ type: listActions.API_CALL_REQUEST })
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(List);

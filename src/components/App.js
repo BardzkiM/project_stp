@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import List from './listView/list/List';
+import ListView from './listView/ListView';
 
 class App extends Component {
     render() {
         return (
             <div className="app-wrapper">
-                <List />
+                <ListView />
             </div>
         );
     }

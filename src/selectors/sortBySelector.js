@@ -1,0 +1,1 @@
+export const getSortBy = state => state.get('sortBy');
