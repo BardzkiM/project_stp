@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { listActions } from '../../../actions/listActions';
 import { getArticles, getFetching, getError } from '../../../selectors/listSelectors';
 import ListItem from "./ListItem";
+import './List.css';
 
 class List extends Component {
     componentDidMount() {
@@ -25,7 +26,7 @@ class List extends Component {
         const items = articles.map(article => <ListItem key={article.get('id')} article={article}/>);
 
         return(
-            <ul>
+            <ul className="list">
                 {items}
             </ul>
         );

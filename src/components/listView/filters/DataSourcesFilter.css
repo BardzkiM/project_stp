@@ -1,0 +1,15 @@
+.data-source-filter {
+    order: 2;
+    flex: 1 0 150px;
+    display: flex;
+    flex-direction: column;
+}
+
+.data-source-filter__title {
+    margin-bottom: 15px;
+    text-decoration: underline;
+}
+
+.data-source-filter__checkbox {
+    margin-bottom: 10px;
+}

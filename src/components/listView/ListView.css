@@ -1,0 +1,5 @@
+.list-view {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+}

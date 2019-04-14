@@ -1,0 +1,40 @@
+.list-item {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    max-height: 300px;
+    max-width: 100%;
+    padding: 10px;
+}
+.list-item__image-wrapper {
+    width: 250px;
+    height: 250px;
+    margin-right: 10px;
+}
+
+.list-item__image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.list-item__heading {
+    display: flex;
+    max-width: calc(100% - 260px);
+}
+
+.list-item__title {
+    flex: 1 0 60%;
+    margin: 0 0 10px;
+    text-wrap: normal;
+}
+
+.list-item__date {
+    flex: 1 0 40%;
+    margin: 10px 0;
+}
+
+.list-item__preamble {
+    text-overflow: ellipsis;
+    max-width: calc(100% - 290px);
+}

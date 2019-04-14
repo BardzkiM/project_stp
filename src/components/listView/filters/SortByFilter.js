@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { sortByTypes } from '../../../constants/sortByTypes';
 import { getSortBy } from '../../../selectors/sortBySelector';
 import { sortByActions } from '../../../actions/sortByActions';
+import './SortByFilter.css';
 
 class SortByFilter extends Component {
     handleOnClick = () => {
@@ -17,8 +18,8 @@ class SortByFilter extends Component {
 
     render() {
         return (
-            <div className="sort-by-filter">
-                <div onClick={this.handleOnClick}>Sort by date</div>
+            <div onClick={this.handleOnClick} className="sort-by-filter">
+                Sort by date
             </div>
         );
     }
