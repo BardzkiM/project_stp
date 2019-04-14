@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
+import List from './list/List';
 
 class App extends Component {
     render() {
         return (
-            <div> test </div>
+            <div className="app-wrapper">
+                <List />
+            </div>
         );
     }
 }
