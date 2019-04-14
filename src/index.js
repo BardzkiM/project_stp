@@ -15,7 +15,7 @@ const sagaMiddleware = createSagaMiddleware();
 const reduxDevTools =
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();
 
-const store = createStore(
+let store = createStore(
     reducer,
     compose(applyMiddleware(sagaMiddleware), reduxDevTools)
 );

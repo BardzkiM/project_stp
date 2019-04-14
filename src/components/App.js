@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import List from './list/List';
+import List from './listView/list/List';
 
 class App extends Component {
     render() {
