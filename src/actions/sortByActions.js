@@ -1,3 +1,6 @@
-export const sortByActions = {
-    SORT_BY: 'SORT_BY',
-};
+import { sortByActionsTypes } from './types/sortByActionsTypes';
+
+export const setSortBy = payload => ({
+    type: sortByActionsTypes.SORT_BY,
+    payload: payload
+});

@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { getDataSourcesFilter } from '../../../selectors/dataSourcesFilter';
-import { dataSourcesFilterActions } from '../../../actions/dataSourcesFilterActions';
 import './DataSourcesFilter.css';
+import { setDataSourcesFilter } from '../../../actions/dataSourcesFilterActions';
 
 class DataSourcesFilter extends Component {
     handleRadioChange = data => {
@@ -45,8 +45,8 @@ const mapStateToProps = state => ({
     dataSourcesFilter: getDataSourcesFilter(state)
 });
 
-const mapDispatchToProps = dispatch => ({
-    setDataSourcesFilter: payload => dispatch({ type: dataSourcesFilterActions.SELECT_FILTER, payload: payload })
-});
+const mapDispatchToProps = {
+    setDataSourcesFilter
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(DataSourcesFilter);

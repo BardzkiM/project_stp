@@ -1,4 +1,4 @@
-import { dataSourcesFilterActions } from '../actions/dataSourcesFilterActions';
+import { dataSourcesFilterActionsTypes } from '../actions/types/dataSourcesFilterActionsTypes';
 import { fromJS } from 'immutable';
 
 const initialState = fromJS({
@@ -8,7 +8,7 @@ const initialState = fromJS({
 
 export function dataSourcesFilterReducer(state = initialState, action) {
     switch (action.type) {
-        case dataSourcesFilterActions.SELECT_FILTER:
+        case dataSourcesFilterActionsTypes.SELECT_FILTER:
             return state.set(action.payload.data, action.payload.value);
         default:
             return state;

@@ -1,11 +1,11 @@
 import { sortByTypes } from "../constants/sortByTypes";
-import { sortByActions } from "../actions/sortByActions";
+import { sortByActionsTypes } from "../actions/types/sortByActionsTypes";
 
 const initialState = sortByTypes.NONE;
 
 export function sortByReducer(state = initialState, action) {
     switch (action.type) {
-        case sortByActions.SORT_BY:
+        case sortByActionsTypes.SORT_BY:
             return action.payload;
         default:
             return state;

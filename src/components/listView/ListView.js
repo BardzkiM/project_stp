@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { getArticles, getError, getFetching } from '../../selectors/listSelectors';
-import { listActions } from '../../actions/listActions';
 import { connect } from 'react-redux';
 import SortByFilter from './filters/SortByFilter';
 import DataSourcesFilter from './filters/DataSourcesFilter';
@@ -10,6 +9,7 @@ import { sortItemsByDate } from '../../utils/sortItems';
 import List from './list/List';
 import './ListView.css';
 import { filterItems } from '../../utils/filterItems';
+import { getItems } from '../../actions/listActions';
 
 class ListView extends Component {
     componentDidMount() {
@@ -51,8 +51,8 @@ const mapStateToProps = state => ({
     dataSourcesFilter: getDataSourcesFilter(state)
 });
 
-const mapDispatchToProps = dispatch => ({
-    getItems: () => dispatch({ type: listActions.API_CALL_REQUEST })
-});
+const mapDispatchToProps = {
+    getItems
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ListView);
