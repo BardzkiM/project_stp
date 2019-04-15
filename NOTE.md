@@ -19,6 +19,10 @@ Other:
  - add sass/less
  - work on store architecture
  - actions, store properties, utils names
+ - getItemsSaga - change to yield all and use action creators
+ - move action types to constants
+ - in ListView move sort and filter to selectors
+ - change action creators payload name
  
 ###note
 I was about to create project from scratch like this (maybe bigger) to work on setting up projects. It was really nice to have some inspiration, I had really good time doing it. I know there are lot of unnecessary libraries (eg. redux, sagas, reselct) and it could be done easier, but I just wanted to practice and set it up by myself :)
